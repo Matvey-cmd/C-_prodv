@@ -1,23 +1,15 @@
-#ifndef VECTOR_IMPL_HPP
-#define VECTOR_IMPL_HPP
-
+#pragma once
 #include "SetImpl.h"
-#include <vector>
-#include <iostream>
-#include <algorithm>
 
-class VectorImpl : public SetImpl {
-    std::vector<int> data;
+class ArraySetImpl : public SetImpl {
+    std::vector<int> elements;
+
 public:
-    void add(int value) override;
-    void remove(int value) override;
-    bool contains(const int& value) const override;
-    void unite(SetImpl* other) const override;
-    void intersect(SetImpl* other) const override;
+    bool add(int element) override;
+    bool remove(int element) override;
+    bool contains(int element) const override;
+    std::unique_ptr<SetImpl> unite(const SetImpl& other) const override;
+    std::unique_ptr<SetImpl> intersect(const SetImpl& other) const override;
     size_t size() const override;
-    std::vector<int> getAll() const override;
-    void loadFrom(const std::vector<int>& values) override;
-    void showType() const override;
+    std::vector<int> getElements() const override;
 };
-
-#endif // VECTOR_IMPL_HPP

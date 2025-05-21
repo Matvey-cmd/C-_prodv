@@ -1,48 +1,33 @@
 #include "UnorderedImpl.h"
 
-void UnorderedImpl::add(int value) {
-    data.insert(value);
+bool HashSetImpl::add(int element) {
+    return elements.insert(element).second;
 }
 
-void UnorderedImpl::remove(int value) {
-    data.erase(value);
+bool HashSetImpl::remove(int element) {
+    return elements.erase(element) > 0;
 }
 
-bool UnorderedImpl::contains(const int& value) const {
-    return data.find(value) != data.end();
+bool HashSetImpl::contains(int element) const {
+    return elements.count(element) > 0;
 }
 
-void UnorderedImpl::unite(SetImpl* other) const {
-    std::unordered_set<int> result = data;
-    for (int val : other->getAll()) result.insert(val);
-    std::cout << "Unite:\n";
-    for (int v : result) std::cout << v << " ";
-    std::cout << "\n";
+std::unique_ptr<SetImpl> HashSetImpl::unite(const SetImpl& other) const {
+    auto result = std::make_unique<HashSetImpl>();
+    for (int elem : getElements()) result->add(elem);
+    for (int elem : other.getElements()) result->add(elem);
+    return result;
 }
 
-void UnorderedImpl::intersect(SetImpl* other) const {
-    std::vector<int> result;
-    for (int val : data) {
-        if (other->contains(val)) result.push_back(val);
+std::unique_ptr<SetImpl> HashSetImpl::intersect(const SetImpl& other) const {
+    auto result = std::make_unique<HashSetImpl>();
+    for (int elem : getElements()) {
+        if (other.contains(elem)) result->add(elem);
     }
-    std::cout << "Intersect:\n";
-    for (int v : result) std::cout << v << " ";
-    std::cout << "\n";
+    return result;
 }
 
-size_t UnorderedImpl::size() const {
-    return data.size();
-}
-
-std::vector<int> UnorderedImpl::getAll() const {
-    return {data.begin(), data.end()};
-}
-
-void UnorderedImpl::loadFrom(const std::vector<int>& values) {
-    data.clear();
-    for (int val : values) data.insert(val);
-}
-
-void UnorderedImpl::showType() const {
-    std::cout << "This is UnorderedSet\n";
+size_t HashSetImpl::size() const { return elements.size(); }
+std::vector<int> HashSetImpl::getElements() const {
+    return std::vector<int>(elements.begin(), elements.end());
 }

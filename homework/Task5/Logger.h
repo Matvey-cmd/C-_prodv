@@ -5,35 +5,35 @@
 #include <deque>
 #include <ctime>
 
-enum class LogSeverity {
-    Normal,
-    Warning,
-    Error
+enum LogLevel {
+    LOG_NORMAL,
+    LOG_WARNING,
+    LOG_ERROR
 };
 
 struct LogRecord {
     std::time_t timestamp;
-    LogSeverity severity;
+    LogLevel level;
     std::string content;
 };
 
-class Logger {
+class Log {
 public:
-    Logger(const Logger&) = delete;
-    Logger& operator=(const Logger&) = delete;
+    Log(const Log&) = delete;
+    Log& operator=(const Log&) = delete;
 
-    static Logger* get();
+    static Log* Instance();
 
-    void add(LogSeverity severity, const std::string& text);
-    void display() const;
+    void message(LogLevel level, const std::string& text);
+    void print() const;
 
 private:
-    Logger() = default;
-    ~Logger() = default;
+    Log() = default;
+    ~Log() = default;
 
     std::deque<LogRecord> records;
 
-    std::string severityToText(LogSeverity severity) const;
+    std::string levelToText(LogLevel level) const;
 };
 
 #endif // LOGGER_HPP

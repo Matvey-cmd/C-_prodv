@@ -1,57 +1,58 @@
 #include "Set.h"
 #include "VectorImpl.h"
 #include "UnorderedImpl.h"
+#include <iostream>
 
-Set::Set() : impl(std::make_unique<VectorImpl>()) {}
+Set::Set() : impl(std::make_unique<ArraySetImpl>()) {}
 
-void Set::add(int value) {
+bool Set::add(int element) {
+    bool result = impl->add(element);
     checkImplementation();
-    impl->add(value);
+    return result;
+}
+
+bool Set::remove(int element) {
+    bool result = impl->remove(element);
     checkImplementation();
+    return result;
 }
 
-void Set::remove(int value) {
-    checkImplementation();
-    impl->remove(value);
-    checkImplementation();
+bool Set::contains(int element) const {
+    return impl->contains(element);
 }
 
-bool Set::contains(const int& value) const {
-    return impl->contains(value);
+Set Set::unite(const Set& other) const {
+    Set result;
+    result.impl = impl->unite(*other.impl);
+    result.checkImplementation();
+    return result;
 }
 
-void Set::unite(Set& other) {
-    impl->unite(other.impl.get());
+Set Set::intersect(const Set& other) const {
+    Set result;
+    result.impl = impl->intersect(*other.impl);
+    result.checkImplementation();
+    return result;
 }
 
-void Set::intersect(Set& other) {
-    impl->intersect(other.impl.get());
-}
+size_t Set::size() const { return impl->size(); }
 
-void Set::showType() const {
-    impl->showType();
-}
-
-size_t Set::size() const {
-    return impl->size();
+void Set::print() const {
+    for (int elem : impl->getElements()) {
+        std::cout << elem << " ";
+    }
+    std::cout << "\n";
 }
 
 void Set::checkImplementation() {
-    if (size() > 20 && dynamic_cast<VectorImpl*>(impl.get())) {
-        switchToUnordered();
-    } else if (size() <= 20 && dynamic_cast<UnorderedImpl*>(impl.get())) {
-        switchToVector();
+    if (impl->size() > SWITCH_THRESHOLD && dynamic_cast<ArraySetImpl*>(impl.get())) {
+        auto temp = std::make_unique<HashSetImpl>();
+        for (int elem : impl->getElements()) temp->add(elem);
+        impl = std::move(temp);
     }
-}
-
-void Set::switchToVector() {
-    auto temp = impl->getAll();
-    impl = std::make_unique<VectorImpl>();
-    impl->loadFrom(temp);
-}
-
-void Set::switchToUnordered() {
-    auto temp = impl->getAll();
-    impl = std::make_unique<UnorderedImpl>();
-    impl->loadFrom(temp);
+    else if (impl->size() <= SWITCH_THRESHOLD && dynamic_cast<HashSetImpl*>(impl.get())) {
+        auto temp = std::make_unique<ArraySetImpl>();
+        for (int elem : impl->getElements()) temp->add(elem);
+        impl = std::move(temp);
+    }
 }

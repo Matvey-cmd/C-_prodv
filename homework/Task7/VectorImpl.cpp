@@ -1,51 +1,37 @@
 #include "VectorImpl.h"
+#include <algorithm>
 
-void VectorImpl::add(int value) {
-    if (!contains(value)) data.push_back(value);
+bool ArraySetImpl::add(int element) {
+    if (contains(element)) return false;
+    elements.push_back(element);
+    return true;
 }
 
-void VectorImpl::remove(int value) {
-    data.erase(std::remove(data.begin(), data.end(), value), data.end());
+bool ArraySetImpl::remove(int element) {
+    auto it = std::find(elements.begin(), elements.end(), element);
+    if (it == elements.end()) return false;
+    elements.erase(it);
+    return true;
 }
 
-bool VectorImpl::contains(const int& value) const {
-    return std::find(data.begin(), data.end(), value) != data.end();
+bool ArraySetImpl::contains(int element) const {
+    return std::find(elements.begin(), elements.end(), element) != elements.end();
 }
 
-void VectorImpl::unite(SetImpl* other) const {
-    std::vector<int> result = data;
-    for (int val : other->getAll()) {
-        if (std::find(result.begin(), result.end(), val) == result.end()) {
-            result.push_back(val);
-        }
+std::unique_ptr<SetImpl> ArraySetImpl::unite(const SetImpl& other) const {
+    auto result = std::make_unique<ArraySetImpl>();
+    for (int elem : getElements()) result->add(elem);
+    for (int elem : other.getElements()) result->add(elem);
+    return result;
+}
+
+std::unique_ptr<SetImpl> ArraySetImpl::intersect(const SetImpl& other) const {
+    auto result = std::make_unique<ArraySetImpl>();
+    for (int elem : getElements()) {
+        if (other.contains(elem)) result->add(elem);
     }
-    std::cout << "Unite:\n";
-    for (int v : result) std::cout << v << " ";
-    std::cout << "\n";
+    return result;
 }
 
-void VectorImpl::intersect(SetImpl* other) const {
-    std::vector<int> result;
-    for (int val : data) {
-        if (other->contains(val)) result.push_back(val);
-    }
-    std::cout << "Intersect:\n";
-    for (int v : result) std::cout << v << " ";
-    std::cout << "\n";
-}
-
-size_t VectorImpl::size() const {
-    return data.size();
-}
-
-std::vector<int> VectorImpl::getAll() const {
-    return data;
-}
-
-void VectorImpl::loadFrom(const std::vector<int>& values) {
-    data = values;
-}
-
-void VectorImpl::showType() const {
-    std::cout << "This is VectorSet\n";
-}
+size_t ArraySetImpl::size() const { return elements.size(); }
+std::vector<int> ArraySetImpl::getElements() const { return elements; }
