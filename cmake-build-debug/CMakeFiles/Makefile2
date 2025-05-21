@@ -54,16 +54,16 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/matveybolshakov/CLionProjects/C++_prodv
+CMAKE_SOURCE_DIR = /Users/matveybolshakov/CLionProjects/C-_prodv
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/matveybolshakov/CLionProjects/C++_prodv/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/matveybolshakov/CLionProjects/C-_prodv/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/C++_prodv.dir/all
+all: CMakeFiles/C-_prodv.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/C++_prodv.dir/clean
+clean: CMakeFiles/C-_prodv.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/C++_prodv.dir
+# Target rules for target CMakeFiles/C-_prodv.dir
 
 # All Build rule for target.
-CMakeFiles/C++_prodv.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C++_prodv.dir/build.make CMakeFiles/C++_prodv.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C++_prodv.dir/build.make CMakeFiles/C++_prodv.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/matveybolshakov/CLionProjects/C++_prodv/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target C++_prodv"
-.PHONY : CMakeFiles/C++_prodv.dir/all
+CMakeFiles/C-_prodv.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C-_prodv.dir/build.make CMakeFiles/C-_prodv.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C-_prodv.dir/build.make CMakeFiles/C-_prodv.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/matveybolshakov/CLionProjects/C-_prodv/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target C-_prodv"
+.PHONY : CMakeFiles/C-_prodv.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/C++_prodv.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matveybolshakov/CLionProjects/C++_prodv/cmake-build-debug/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/C++_prodv.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matveybolshakov/CLionProjects/C++_prodv/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/C++_prodv.dir/rule
+CMakeFiles/C-_prodv.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matveybolshakov/CLionProjects/C-_prodv/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/C-_prodv.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matveybolshakov/CLionProjects/C-_prodv/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/C-_prodv.dir/rule
 
 # Convenience name for target.
-C++_prodv: CMakeFiles/C++_prodv.dir/rule
-.PHONY : C++_prodv
+C-_prodv: CMakeFiles/C-_prodv.dir/rule
+.PHONY : C-_prodv
 
 # clean rule for target.
-CMakeFiles/C++_prodv.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C++_prodv.dir/build.make CMakeFiles/C++_prodv.dir/clean
-.PHONY : CMakeFiles/C++_prodv.dir/clean
+CMakeFiles/C-_prodv.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C-_prodv.dir/build.make CMakeFiles/C-_prodv.dir/clean
+.PHONY : CMakeFiles/C-_prodv.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

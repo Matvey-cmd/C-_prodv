@@ -1,4 +1,1 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/Library/Developer/CommandLineTools/usr/bin/clang++ -G "Unix Makefiles" -S /Users/matveybolshakov/CLionProjects/C++_prodv -B /Users/matveybolshakov/CLionProjects/C++_prodv/cmake-build-debug
--- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: /Users/matveybolshakov/CLionProjects/C++_prodv/cmake-build-debug
+CMakeLists.txt not found in /Users/matveybolshakov/CLionProjects/C-_prodv Select CMakeLists.txt

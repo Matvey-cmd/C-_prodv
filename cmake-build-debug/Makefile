@@ -57,10 +57,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/matveybolshakov/CLionProjects/C++_prodv
+CMAKE_SOURCE_DIR = /Users/matveybolshakov/CLionProjects/C-_prodv
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/matveybolshakov/CLionProjects/C++_prodv/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/matveybolshakov/CLionProjects/C-_prodv/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matveybolshakov/CLionProjects/C++_prodv/cmake-build-debug/CMakeFiles /Users/matveybolshakov/CLionProjects/C++_prodv/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matveybolshakov/CLionProjects/C-_prodv/cmake-build-debug/CMakeFiles /Users/matveybolshakov/CLionProjects/C-_prodv/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matveybolshakov/CLionProjects/C++_prodv/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/matveybolshakov/CLionProjects/C-_prodv/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named C++_prodv
+# Target rules for targets named C-_prodv
 
 # Build rule for target.
-C++_prodv: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 C++_prodv
-.PHONY : C++_prodv
+C-_prodv: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 C-_prodv
+.PHONY : C-_prodv
 
 # fast build rule for target.
-C++_prodv/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C++_prodv.dir/build.make CMakeFiles/C++_prodv.dir/build
-.PHONY : C++_prodv/fast
+C-_prodv/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C-_prodv.dir/build.make CMakeFiles/C-_prodv.dir/build
+.PHONY : C-_prodv/fast
 
-homework/Task1.o: homework/Task1.cpp.o
-.PHONY : homework/Task1.o
+homework/Task1/main.o: homework/Task1/main.cpp.o
+.PHONY : homework/Task1/main.o
 
 # target to build an object file
-homework/Task1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C++_prodv.dir/build.make CMakeFiles/C++_prodv.dir/homework/Task1.cpp.o
-.PHONY : homework/Task1.cpp.o
+homework/Task1/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C-_prodv.dir/build.make CMakeFiles/C-_prodv.dir/homework/Task1/main.cpp.o
+.PHONY : homework/Task1/main.cpp.o
 
-homework/Task1.i: homework/Task1.cpp.i
-.PHONY : homework/Task1.i
+homework/Task1/main.i: homework/Task1/main.cpp.i
+.PHONY : homework/Task1/main.i
 
 # target to preprocess a source file
-homework/Task1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C++_prodv.dir/build.make CMakeFiles/C++_prodv.dir/homework/Task1.cpp.i
-.PHONY : homework/Task1.cpp.i
+homework/Task1/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C-_prodv.dir/build.make CMakeFiles/C-_prodv.dir/homework/Task1/main.cpp.i
+.PHONY : homework/Task1/main.cpp.i
 
-homework/Task1.s: homework/Task1.cpp.s
-.PHONY : homework/Task1.s
+homework/Task1/main.s: homework/Task1/main.cpp.s
+.PHONY : homework/Task1/main.s
 
 # target to generate assembly for a file
-homework/Task1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C++_prodv.dir/build.make CMakeFiles/C++_prodv.dir/homework/Task1.cpp.s
-.PHONY : homework/Task1.cpp.s
+homework/Task1/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C-_prodv.dir/build.make CMakeFiles/C-_prodv.dir/homework/Task1/main.cpp.s
+.PHONY : homework/Task1/main.cpp.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... C++_prodv"
-	@echo "... homework/Task1.o"
-	@echo "... homework/Task1.i"
-	@echo "... homework/Task1.s"
+	@echo "... C-_prodv"
+	@echo "... homework/Task1/main.o"
+	@echo "... homework/Task1/main.i"
+	@echo "... homework/Task1/main.s"
 .PHONY : help
 
 
