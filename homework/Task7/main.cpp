@@ -1,4 +1,4 @@
-#include "Set.hpp"
+#include "Set.h"
 
 int main() {
     Set s1;
