@@ -1,6 +1,6 @@
 #include "Set.hpp"
-#include "VectorImpl.hpp"
-#include "UnorderedImpl.hpp"
+#include "VectorImpl.h"
+#include "UnorderedImpl.h"
 
 Set::Set() : impl(std::make_unique<VectorImpl>()) {}
 
